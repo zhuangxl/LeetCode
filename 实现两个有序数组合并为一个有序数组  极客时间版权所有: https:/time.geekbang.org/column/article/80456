@@ -1,0 +1,27 @@
+private static int[] mergeArray(int[] a, int[] b) {
+        int lenA = a.length;
+        int lenB = b.length;
+        int[] result = new int[lenA + lenB];
+        int i = 0, j = 0, k = 0;
+        while (i != lenA && j != lenB) {
+            if (a[i] <= b[j]) {
+                result[k] = a[i];
+                i++;
+            } else {
+                result[k] = b[j];
+                j++;
+            }
+            k++;
+        }
+        if (i == lenA) {
+            for (int l = j ; l < lenB; l++) {
+                result[k++] = b[l];
+            }
+        }
+        if (j == lenB) {
+            for (int l =  i; l < lenA; l++) {
+                result[k++] = a[l];
+            }
+        }
+        return result;
+    }
